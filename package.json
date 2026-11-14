@@ -1,0 +1,28 @@
+{
+  "name": "adom-hospital-hms",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Hospital Management System for Ghanaian clinics and small hospitals",
+  "scripts": {
+    "dev": "concurrently -k -n api,web -c green,cyan \"node --watch --disable-warning=ExperimentalWarning server/index.js\" \"vite --config web/vite.config.ts\"",
+    "build": "vite build --config web/vite.config.ts",
+    "start": "NODE_ENV=production node --disable-warning=ExperimentalWarning server/index.js",
+    "seed": "node --disable-warning=ExperimentalWarning server/reset-seed.js"
+  },
+  "dependencies": {
+    "express": "^4.21.2",
+    "lucide-react": "^0.468.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.28.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react": "^4.3.4",
+    "concurrently": "^9.1.0",
+    "typescript": "^5.7.2",
+    "vite": "^5.4.11"
+  }
+}

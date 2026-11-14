@@ -8,7 +8,9 @@
     "dev": "concurrently -k -n api,web -c green,cyan \"node --watch --disable-warning=ExperimentalWarning server/index.js\" \"vite --config web/vite.config.ts\"",
     "build": "vite build --config web/vite.config.ts",
     "start": "NODE_ENV=production node --disable-warning=ExperimentalWarning server/index.js",
-    "seed": "node --disable-warning=ExperimentalWarning server/reset-seed.js"
+    "seed": "node --disable-warning=ExperimentalWarning server/reset-seed.js",
+    "build:worker": "esbuild worker/index.js --bundle --format=esm --outfile=build/worker.js --platform=neutral --target=es2022",
+    "build:cloud": "npm run build && npm run build:worker"
   },
   "dependencies": {
     "express": "^4.21.2",
